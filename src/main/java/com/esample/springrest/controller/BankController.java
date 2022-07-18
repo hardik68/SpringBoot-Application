@@ -14,7 +14,7 @@ public class BankController {
     private BankService bankService;
 
     @PostMapping("/bankDetails")
-    public BankResponse validate(@RequestBody BankInput bankInput){
+    public BankResponse saveBankDetails (@RequestBody BankInput bankInput){
 
         return bankService.validate(bankInput);
     }

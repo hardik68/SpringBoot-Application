@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.esample.springrest.model.MobileNumberInput;
 import com.esample.springrest.model.ValidateOtpRequest;
 import com.esample.springrest.service.OtpService;
-import com.esample.springrest.service.OtpServiceImpl;
 
 
 @RestController

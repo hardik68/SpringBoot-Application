@@ -14,46 +14,69 @@ public class User {
     private String name;
     @Column(name="email")
     private String email;
-
-
     @Column(name="user_name")
     private String userName;
     @Column(name="phone_no")
     private String phoneNum;
+    @Column(name="is_approver")
+    private boolean isApprover;
+    @Column(name="store_name")
+    private String storeName;
+    @Column(name="is_retailer")
+    private boolean isRetailer;
+    @Column(name="user_password")
+    private String userPassword;
+    @Column(name="userverified")
+    private boolean userverified;
 
-    public String getGst() {
-        return gst;
-    }
-
-    public void setGst(String gst) {
-        this.gst = gst;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Column(name="gst")
-    private String gst;
-    @Column(name="address")
-    private String  address;
 
     @Column(name = "Userverified")
     public boolean Userverified() {
         return userverified;
     }
 
+    public boolean isApprover() {
+        return isApprover;
+    }
+
+    public void setApprover(boolean approver) {
+        isApprover = approver;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public boolean isRetailer() {
+        return isRetailer;
+    }
+
+    public void setRetailer(boolean retailer) {
+        isRetailer = retailer;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public boolean isUserverified() {
+        return userverified;
+    }
+
+
+
+
     public void setUserverified(boolean userverified) {
         this.userverified = userverified;
     }
-
-    @Column(name="userverified")
-    private boolean userverified;
-
 
 
     public String getUserName() {

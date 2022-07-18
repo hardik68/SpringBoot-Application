@@ -1,12 +1,61 @@
 package com.esample.springrest.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserInputRequest {
 
-    String name;
-    String phone;
-    String email;
+   private String name;
+    private String phone;
+    private  String email;
+    @JsonProperty("user_name")
+    private  String userName;
+    @JsonProperty("store_name")
+    private  String storeName;
+    @JsonProperty("is_approver")
+    private boolean isApprover;
+    @JsonProperty("is_retailer")
+    private boolean isRetailer;
+    @JsonProperty("user_password")
+    private String userPassword;
+    public String getStoreName() {
+        return storeName;
+    }
 
-    String userName;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public boolean isApprover() {
+        return isApprover;
+    }
+
+    public void setApprover(boolean approver) {
+        isApprover = approver;
+    }
+
+    public boolean isRetailer() {
+        return isRetailer;
+    }
+
+    public void setRetailer(boolean retailer) {
+        isRetailer = retailer;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getPassword() {
+        return userPassword;
+    }
+
+    public void setPassword(String password) {
+        this.userPassword = password;
+    }
 
     public String getUserName() {
         return userName;
