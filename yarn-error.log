@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\hardik.setia\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add localtunnel
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.3.7-hotspot\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Enterprise Vault\EVClient\x64\;C:\Windows\CCM;C:\Windows\CCM;C:\Program Files\avs\bin;C:\Program Files\avs\bin32;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\hardik.setia\AppData\Local\Microsoft\WindowsApps;C:\Users\hardik.setia\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hardik.setia\AppData\Local\Programs\Git\cmd;C:\Program Files\heroku\bin;C:\Users\hardik.setia\Downloads\ngrok-2.2.8-windows-amd64;C:\Users\hardik.setia\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/localtunnel: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+      at Request.module.exports.Request.onRequestResponse (C:\Users\hardik.setia\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141653:24)
+      at ClientRequest.emit (node:events:527:28)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:631:27)
+      at HTTPParser.parserOnHeadersComplete (node:_http_common:128:17)
+      at TLSSocket.socketOnData (node:_http_client:494:22)
+      at TLSSocket.emit (node:events:527:28)
+      at addChunk (node:internal/streams/readable:315:12)
+      at readableAddChunk (node:internal/streams/readable:289:9)
+      at TLSSocket.Readable.push (node:internal/streams/readable:228:10)
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:190:23)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
