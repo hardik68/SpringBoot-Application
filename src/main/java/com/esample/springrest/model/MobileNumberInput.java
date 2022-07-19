@@ -4,9 +4,7 @@ public class MobileNumberInput {
 	String mobileNumber;
 
 
-//	public MobileNumberInput(String mobileNumber) {
-//		this.mobileNumber = mobileNumber;
-//	}
+
 
 	public String getMobileNumber() {
 		return mobileNumber;

@@ -2,60 +2,65 @@ package com.esample.springrest.model;
 
 public class RetailerInput {
 
-    String first_name;
-
-    String last_name;
-
-    String email;
-    String mobile_number;
-    String adharcardNo;
-    String panNo;
-
-    public String getFirst_name() {
-        return first_name;
+    public String getPanNumber() {
+        return panNumber;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setPanNumber(String panNumber) {
+        this.panNumber = panNumber;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getAadharNumber() {
+        return aadharNumber;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setAadharNumber(String aadharNumber) {
+        this.aadharNumber = aadharNumber;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAccountNumber() {
+        return AccountNumber;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAccountNumber(String accountNumber) {
+        this.AccountNumber = AccountNumber;
     }
 
-    public String getMobile_number() {
-        return mobile_number;
+    public String getGstNumber() {
+        return gstNumber;
     }
 
-    public void setMobile_number(String mobile_number) {
-        this.mobile_number = mobile_number;
+    public void setGstNumber(String gstNumber) {
+        this.gstNumber = gstNumber;
     }
 
-    public String getAdharcardNo() {
-        return adharcardNo;
+    public String getIfscCode() {
+        return IfscCode;
     }
 
-    public void setAdharcardNo(String adharcardNo) {
-        this.adharcardNo = adharcardNo;
+    public void setIfscCode(String ifscCode) {
+        IfscCode = ifscCode;
     }
 
-    public String getPanNo() {
-        return panNo;
+    String panNumber;
+
+    String aadharNumber;
+
+    String AccountNumber;
+
+    String gstNumber;
+
+    String IfscCode;
+
+    public String getConfirmAccountNumber() {
+        return ConfirmAccountNumber;
     }
 
-    public void setPanNo(String panNo) {
-        this.panNo = panNo;
+    public void setConfirmAccountNumber(String confirmAccountNumber) {
+        ConfirmAccountNumber = confirmAccountNumber;
     }
+
+    String ConfirmAccountNumber;
+
+
 }

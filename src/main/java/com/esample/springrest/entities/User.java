@@ -30,11 +30,6 @@ public class User {
     private boolean userverified;
 
 
-    @Column(name = "Userverified")
-    public boolean Userverified() {
-        return userverified;
-    }
-
     public boolean isApprover() {
         return isApprover;
     }

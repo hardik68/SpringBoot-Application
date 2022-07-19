@@ -39,7 +39,7 @@ public class OtpServiceImpl implements OtpService {
 		String otp = getRandomNumberint();
 		UserOtp userOtp = new UserOtp();
 		if(isValidMobileNo(mobileNumberInput.getMobileNumber())){
-			userOtp.setMobileNumber(mobileNumberInput.getMobileNumber());
+			userOtp.setEmail(mobileNumberInput.getMobileNumber());
 			java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
 			java.sql.Date expiryDate = new java.sql.Date(System.currentTimeMillis() + expiryTime);
 
@@ -64,7 +64,7 @@ public class OtpServiceImpl implements OtpService {
 		UserOtp userOtp = otpRepository.findByOtpAndMobileNumber(validateOtpRequest.getOtp(), validateOtpRequest.getMobileNumber());
 
 		if (userOtp != null)
-			System.out.println("### Response ###" + userOtp.getOtp() + " " + userOtp.getMobileNumber());
+			System.out.println("### Response ###" + userOtp.getOtp() + " " + userOtp.getemail());
 		if(null != userOtp && userOtp.getOtp().equals(validateOtpRequest.getOtp()))
 			return true;
 		else

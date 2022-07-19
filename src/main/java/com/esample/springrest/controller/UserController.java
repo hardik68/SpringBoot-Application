@@ -14,8 +14,6 @@ public class UserController {
 
     @Autowired(required = true)
     private UserService userService;
-    @Autowired(required = true)
-    private EmailService emailService;
 
     @PostMapping("/signup")
     public UserResponse signUp(@RequestBody UserInputRequest userInputRequest) {

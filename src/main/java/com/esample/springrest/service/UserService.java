@@ -1,6 +1,7 @@
 package com.esample.springrest.service;
 
 import com.esample.springrest.entities.User;
+import com.esample.springrest.model.EmailDetails;
 import com.esample.springrest.model.UserInputRequest;
 import com.esample.springrest.response.UserFetchResponse;
 import com.esample.springrest.response.UserResponse;
@@ -16,6 +17,8 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    EmailService emailService;
     private CharSequence str;
 
     public UserResponse signUp(UserInputRequest userInputRequest) {
@@ -39,6 +42,12 @@ public class UserService {
             }
             user.setUserverified(false);
             User userReturned = userRepository.save(user);
+            // save otp
+
+            // call the email service function
+            emailService.sendSimpleMail(EmailDetails.builder().recipient(userReturned.getEmail()).msgBody("").build());
+
+
             return new UserResponse(userReturned.getId(),"Successfully signed up.","SUCCESS");
         }catch (Exception ex) {
             return new UserResponse("Error during signing up. " +ex.getMessage(),"FAILURE");

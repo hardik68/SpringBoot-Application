@@ -20,28 +20,33 @@ public class RetailerService {
 
     public RetailerResponse retailerOnboard(RetailerInput retailerInput) {
         try {
-            if (!isValidAadhaarNumber(retailerInput.getAdharcardNo())) {
+            if (!isValidAadhaarNumber(retailerInput.getAadharNumber())) {
                 return new RetailerResponse("Failure", "Aadhar Number not valid");
             }
-            if (retailerInput.getMobile_number() == null || retailerInput.getMobile_number().equals("")) {
-                return new RetailerResponse("Failure", "Mobile Number not valid");
-            }
-            if (!isValidPanCardNo(retailerInput.getPanNo())) {
+            if (!isValidPanCardNo(retailerInput.getPanNumber())) {
                 return new RetailerResponse("Failure", "Pan Number not valid");
             }
-            if (retailerInput.getEmail() == null || retailerInput.getEmail().equals("")) {
-                return new RetailerResponse("Failure", "Pan Number not valid");
+            if(!isValidGSTNo(retailerInput.getGstNumber())){
+                return new RetailerResponse("Failure", "Gst Number  not valid");
+            }
+            if(isValidIFSCode(retailerInput.getIfscCode())){
+                return new RetailerResponse("Failure", "Ifsc Code not valid");
+            }
+            if(!isValidAccountNumber(retailerInput.getAccountNumber())){
+                return new RetailerResponse("Failure", "Ifsc Code not valid");
+            }
+            if(!isValidConfirmAccountNumber(retailerInput.getConfirmAccountNumber())){
+                return new RetailerResponse("Failure", "Ifsc Code not valid");
+
             }
 
             RetailerUser retailerUser = new RetailerUser();
-            retailerUser.setCreatedAt(new Date(System.currentTimeMillis()));
-            retailerUser.setUpdatedAt(new Date(System.currentTimeMillis()));
-            retailerUser.setEmail(retailerInput.getEmail());
-            retailerUser.setPanCard(retailerInput.getPanNo());
-            retailerUser.setPhoneNum(retailerInput.getMobile_number());
-            retailerUser.setAdharcard(retailerInput.getAdharcardNo());
-            retailerUser.setFirst_name(retailerInput.getFirst_name());
-            retailerUser.setLast_name(retailerInput.getLast_name());
+            retailerUser.setPanNumber(retailerInput.getPanNumber());
+
+            retailerUser.setAadharNumber(retailerInput.getAadharNumber());
+            retailerUser.setGst(retailerInput.getGstNumber());
+            retailerUser.setIfscCode(retailerInput.getIfscCode());
+            retailerUser.setAccountNumber((retailerInput.getAccountNumber()));
             RetailerUser userReturned = retailerRepository.save(retailerUser);
             return new RetailerResponse("SUCCESS", "Successfully signed up.");
         } catch (Exception ex) {
@@ -96,8 +101,105 @@ public class RetailerService {
             // matched the ReGex
             return m.matches();
         }
+    public static boolean isValidGSTNo(String gstNo)
+    {
+        // Regex to check valid
+        // GST (Goods and Services Tax) number
+        String regex = "^[0-9]{2}[A-Z]{5}[0-9]{4}"
+                + "[A-Z]{1}[1-9A-Z]{1}"
+                + "Z[0-9A-Z]{1}$";
 
+        // Compile the ReGex
+        Pattern p = Pattern.compile(regex);
 
+        // If the string is empty
+        // return false
+        if (gstNo == null)
+        {
+            return false;
+        }
 
+        // Pattern class contains matcher()
+        // method to find the matching
+        // between the given string
+        // and the regular expression.
+        Matcher m = p.matcher(gstNo);
+
+        // Return if the string
+        // matched the ReGex
+        return m.matches();
     }
+    public static boolean isValidIFSCode(String IFSCode)
+    {
+        // Regex to check valid IFSC Code.
+        String regex = "^[A-Z]{4}0[A-Z0-9]{6}$";
+
+        // Compile the ReGex
+        Pattern p = Pattern.compile(regex);
+
+        // If the string is empty
+        // return false
+        if (IFSCode == null) {
+            return false;
+        }
+
+        // Pattern class contains matcher()
+        // method to find matching between
+        // the given string and
+        // the regular expression.
+        Matcher m = p.matcher(IFSCode);
+
+        // Return if the string
+        // matched the ReGex
+        return m.matches();
+    }
+    public static boolean isValidAccountNumber(String AccountNumber)
+    {
+        // Regex to check valid IFSC Code.
+        String regex = "/^([0-9]{11})|([0-9]{2}-[0-9]{3}-[0-9]{6})$/";
+
+        // Compile the ReGex
+        Pattern p = Pattern.compile(regex);
+
+        // If the string is empty
+        // return false
+        if (AccountNumber == null) {
+            return false;
+        }
+
+        // Pattern class contains matcher()
+        // method to find matching between
+        // the given string and
+        // the regular expression.
+        Matcher m = p.matcher(AccountNumber);
+
+        // Return if the string
+        // matched the ReGex
+        return m.matches();
+    }
+    public static boolean isValidConfirmAccountNumber(String ConfirmAccountNumber)
+    {
+        // Regex to check valid IFSC Code.
+        String regex = "/^([0-9]{11})|([0-9]{2}-[0-9]{3}-[0-9]{6})$/";
+
+        // Compile the ReGex
+        Pattern p = Pattern.compile(regex);
+
+        // If the string is empty
+        // return false
+        if (ConfirmAccountNumber == null) {
+            return false;
+        }
+
+        // Pattern class contains matcher()
+        // method to find matching between
+        // the given string and
+        // the regular expression.
+        Matcher m = p.matcher(ConfirmAccountNumber);
+
+        // Return if the string
+        // matched the ReGex
+        return m.matches();
+    }
+}
 

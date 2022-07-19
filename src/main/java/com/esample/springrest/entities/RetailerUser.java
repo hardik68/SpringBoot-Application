@@ -11,50 +11,20 @@ public class RetailerUser {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "aadhar_card")
+    private String aadharNumber;
 
-    @Column(name="firstname")
-    private String first_name;
-    @Column(name = "lastname")
-    private String last_name;
-    @Column(name="email")
-    private String email;
-    @Column(name="phone_no")
-    private String phoneNum;
-    @Column(name="adhar_card")
-    private String adharcard;
+    @Column(name = "pan_card")
+    private String panNumber;
+    @Column(name = "Ifsc_code")
+    private String IfscCode;
+    @Column(name = "gst")
+    private String gst;
+    @Column(name = "account_number")
+    private String AccountNumber;
 
-    @Column(name="pan_card")
-    private String panCard;
-
-    @Column(name="created_at")
-    private Date createdAt;
-
-    @Column(name="updated_at")
-    private Date updatedAt;
-
-    public String getPanCard() {
-        return panCard;
-    }
-
-    public void setPanCard(String panCard) {
-        this.panCard = panCard;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    @Column(name = "confirm_account")
+    private String ConfirmAccountNumber;
 
     public int getId() {
         return id;
@@ -64,43 +34,56 @@ public class RetailerUser {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getAadharNumber() {
+        return aadharNumber;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setAadharNumber(String aadharNumber) {
+        this.aadharNumber = aadharNumber;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getPanNumber() {
+        return panNumber;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setPanNumber(String panNumber) {
+        this.panNumber = panNumber;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIfscCode() {
+        return IfscCode;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIfscCode(String ifscCode) {
+        IfscCode = ifscCode;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getGst() {
+        return gst;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setGst(String gst) {
+        this.gst = gst;
     }
 
-    public String getAdharcard() {
-        return adharcard;
+    public String getAccountNumber() {
+        return AccountNumber;
     }
 
-    public void setAdharcard(String adharcard) {
-        this.adharcard = adharcard;
+    public void setAccountNumber(String accountNumber) {
+        AccountNumber = accountNumber;
+    }
+
+    public String getConfirmAccountNumber() {
+        return ConfirmAccountNumber;
+    }
+
+    public void setConfirmAccountNumber(String confirmAccountNumber) {
+        ConfirmAccountNumber = confirmAccountNumber;
     }
 }
+
+
+
+
+
