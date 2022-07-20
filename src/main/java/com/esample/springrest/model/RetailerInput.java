@@ -19,11 +19,11 @@ public class RetailerInput {
     }
 
     public String getAccountNumber() {
-        return AccountNumber;
+        return accountNumber;
     }
 
     public void setAccountNumber(String accountNumber) {
-        this.AccountNumber = AccountNumber;
+        this.accountNumber = accountNumber;
     }
 
     public String getGstNumber() {
@@ -35,32 +35,28 @@ public class RetailerInput {
     }
 
     public String getIfscCode() {
-        return IfscCode;
+        return ifscCode;
     }
 
     public void setIfscCode(String ifscCode) {
-        IfscCode = ifscCode;
+        this.ifscCode = ifscCode;
     }
 
     String panNumber;
 
     String aadharNumber;
-
-    String AccountNumber;
+    String accountNumber;
 
     String gstNumber;
 
-    String IfscCode;
+    String ifscCode;
+    String confirmAccountNumber;
 
     public String getConfirmAccountNumber() {
-        return ConfirmAccountNumber;
+        return confirmAccountNumber;
     }
 
     public void setConfirmAccountNumber(String confirmAccountNumber) {
-        ConfirmAccountNumber = confirmAccountNumber;
+        this.confirmAccountNumber = confirmAccountNumber;
     }
-
-    String ConfirmAccountNumber;
-
-
 }

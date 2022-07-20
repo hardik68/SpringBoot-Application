@@ -14,12 +14,13 @@ public class BankController {
     private BankService bankService;
 
     @PostMapping("/bankDetails")
-    public BankResponse saveBankDetails (@RequestBody BankInput bankInput){
+    public BankResponse saveBankDetails(@RequestBody BankInput bankInput) {
 
         return bankService.validate(bankInput);
     }
-        @GetMapping("/fetchBankDetails")
-        public UserBankFetchResponse findByPhoneNumber(@RequestParam("phoneNumber") String phoneNumber){
-        return bankService.findByPhoneNumber(phoneNumber);
-    }
 }
+//        @GetMapping("/fetchBankDetails")
+//        public UserBankFetchResponse findByPhoneNumber(@RequestParam("phoneNumber") String phoneNumber){
+//        return bankService.findByPhoneNumber(phoneNumber);
+//    }
+

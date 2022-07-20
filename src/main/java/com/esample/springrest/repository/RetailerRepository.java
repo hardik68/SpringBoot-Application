@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RetailerRepository extends JpaRepository<RetailerUser,Integer> {
 
-    RetailerUser findByPhoneNum(String phoneNumber);
+//    RetailerUser findByPhoneNum(String phoneNumber);
 }

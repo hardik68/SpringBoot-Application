@@ -29,11 +29,11 @@ public class RetailerService {
             if(!isValidGSTNo(retailerInput.getGstNumber())){
                 return new RetailerResponse("Failure", "Gst Number  not valid");
             }
-            if(isValidIFSCode(retailerInput.getIfscCode())){
+            if(!isValidIFSCode(retailerInput.getIfscCode())){
                 return new RetailerResponse("Failure", "Ifsc Code not valid");
             }
             if(!isValidAccountNumber(retailerInput.getAccountNumber())){
-                return new RetailerResponse("Failure", "Ifsc Code not valid");
+                return new RetailerResponse("Failure", " Account Number  not valid");
             }
             if(!isValidConfirmAccountNumber(retailerInput.getConfirmAccountNumber())){
                 return new RetailerResponse("Failure", "Ifsc Code not valid");
@@ -155,8 +155,7 @@ public class RetailerService {
     }
     public static boolean isValidAccountNumber(String AccountNumber)
     {
-        // Regex to check valid IFSC Code.
-        String regex = "/^([0-9]{11})|([0-9]{2}-[0-9]{3}-[0-9]{6})$/";
+        String regex = "[0-9]{9,18}";
 
         // Compile the ReGex
         Pattern p = Pattern.compile(regex);
@@ -179,8 +178,7 @@ public class RetailerService {
     }
     public static boolean isValidConfirmAccountNumber(String ConfirmAccountNumber)
     {
-        // Regex to check valid IFSC Code.
-        String regex = "/^([0-9]{11})|([0-9]{2}-[0-9]{3}-[0-9]{6})$/";
+        String regex = "[0-9]{9,18}";
 
         // Compile the ReGex
         Pattern p = Pattern.compile(regex);

@@ -20,8 +20,8 @@ public class UserOtp {
 	private int id;
 	@Column(name="otp")
 	private String otp;
-	@Column(name="email")
-	private String email;
+	@Column(name="moblie_number")
+	private String mobileNumber;
 	@Column(name="genrated_at")
 	private Date genratedAt;
 	@Column(name="expiry_time")
@@ -38,11 +38,11 @@ public class UserOtp {
 	public void setOtp(String otp) {
 		this.otp = otp;
 	}
-	public String getemail() {
-		return email;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 	public Date getGenratedAt() {
 		return genratedAt;

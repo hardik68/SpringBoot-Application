@@ -17,7 +17,7 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
-    @Autowired
+    @Autowired(required = true)
     EmailService emailService;
     private CharSequence str;
 

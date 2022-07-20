@@ -47,32 +47,31 @@ public class BankService {
 
     }
 
-    public UserBankFetchResponse findByPhoneNumber(String phoneNumber) {
-        try {
-            RetailerUser retailerUser = retailerRepository.findByPhoneNum(phoneNumber);
-            if(retailerUser!= null) {
-                int userId = retailerUser.getId();
-                BankUser bankUser = bankRepository.findByUserId(userId);
-                if(bankUser!=null) {
-                    UserBankFetchResponse bankFetchResponse = new UserBankFetchResponse();
-                    bankFetchResponse.setBranchname(bankUser.getBranchName());
-                    bankFetchResponse.setEmail(retailerUser.getEmail());
-                    bankFetchResponse.setIfsccode(bankUser.getIfscCode());
-                    bankFetchResponse.setAdharcard(retailerUser.getAdharcard());
-                    bankFetchResponse.setPancard(retailerUser.getPanCard());
-                    bankFetchResponse.setAccountnumber(bankUser.getAccountNo());
-                    bankFetchResponse.setId(bankUser.getId());
-                    bankFetchResponse.setName(retailerUser.getFirst_name()+" "+ retailerUser.getLast_name());
-                    bankFetchResponse.setMessage("Successfully fetched user details.");
-                    return bankFetchResponse;
-                }
-            }
-
-            return new UserBankFetchResponse();
-        } catch (Exception ex) {
-            return new UserBankFetchResponse();
-
-        }
-
-    }
+//    public UserBankFetchResponse findByPhoneNumber(String phoneNumber) {
+//        try {
+//            RetailerUser retailerUser = retailerRepository.findByPhoneNum(phoneNumber);
+//            if(retailerUser!= null) {
+//                int userId = retailerUser.getId();
+//                BankUser bankUser = bankRepository.findByUserId(userId);
+//                if(bankUser!=null) {
+//                    UserBankFetchResponse bankFetchResponse = new UserBankFetchResponse();
+//                    bankFetchResponse.setBranchname(bankUser.getBranchName());
+//                    bankFetchResponse.setEmail(retailerUser.getAadharNumber());
+//                    bankFetchResponse.setIfsccode(bankUser.getIfscCode());
+//                    bankFetchResponse.setAdharcard(retailerUser.getAccountNumber());
+//                    bankFetchResponse.setPancard(retailerUser.getPanNumber());
+//                    bankFetchResponse.setAccountnumber(bankUser.getAccountNo());
+//                    bankFetchResponse.setId(bankUser.getId());
+//                    bankFetchResponse.setMessage("Successfully fetched user details.");
+//                    return bankFetchResponse;
+//                }
+//            }
+//
+//            return new UserBankFetchResponse();
+//        } catch (Exception ex) {
+//            return new UserBankFetchResponse();
+//
+//        }
+//
+//    }
 }
