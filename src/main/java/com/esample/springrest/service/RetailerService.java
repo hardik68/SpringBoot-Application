@@ -47,6 +47,7 @@ public class RetailerService {
             retailerUser.setGst(retailerInput.getGstNumber());
             retailerUser.setIfscCode(retailerInput.getIfscCode());
             retailerUser.setAccountNumber((retailerInput.getAccountNumber()));
+            retailerUser.setConfirmAccountNumber(retailerInput.getConfirmAccountNumber());
             RetailerUser userReturned = retailerRepository.save(retailerUser);
             return new RetailerResponse("SUCCESS", "Successfully signed up.");
         } catch (Exception ex) {

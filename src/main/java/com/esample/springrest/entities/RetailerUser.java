@@ -1,10 +1,9 @@
 package com.esample.springrest.entities;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
-@Table(name = "RetailerUser")
+@Table(name = "retailer_user1")
 public class RetailerUser {
 
     @Id
@@ -21,10 +20,10 @@ public class RetailerUser {
     @Column(name = "gst")
     private String gst;
     @Column(name = "account_number")
-    private String AccountNumber;
+    private String accountNumber;
 
     @Column(name = "confirm_account")
-    private String ConfirmAccountNumber;
+    private String confirmAccountNumber;
 
     public int getId() {
         return id;
@@ -67,19 +66,19 @@ public class RetailerUser {
     }
 
     public String getAccountNumber() {
-        return AccountNumber;
+        return accountNumber;
     }
 
     public void setAccountNumber(String accountNumber) {
-        AccountNumber = accountNumber;
+        this.accountNumber = accountNumber;
     }
 
     public String getConfirmAccountNumber() {
-        return ConfirmAccountNumber;
+        return confirmAccountNumber;
     }
 
     public void setConfirmAccountNumber(String confirmAccountNumber) {
-        ConfirmAccountNumber = confirmAccountNumber;
+        this.confirmAccountNumber = confirmAccountNumber;
     }
 }
 
