@@ -14,4 +14,7 @@ public class EmailInput {
     }
 
     String email;
+
+    public EmailInput() {
+    }
 }
