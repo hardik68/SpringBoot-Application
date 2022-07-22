@@ -2,6 +2,7 @@ package com.esample.springrest.service;
 
 import com.esample.springrest.entities.User;
 import com.esample.springrest.model.EmailDetails;
+import com.esample.springrest.model.EmailInput;
 import com.esample.springrest.model.UserInputRequest;
 import com.esample.springrest.response.UserFetchResponse;
 import com.esample.springrest.response.UserResponse;
@@ -14,6 +15,8 @@ import java.util.regex.Pattern;
 
 @Service
 public class UserService {
+    @Autowired
+    OtpServiceImpl otpService;
 
     @Autowired
     UserRepository userRepository;
@@ -44,8 +47,13 @@ public class UserService {
             User userReturned = userRepository.save(user);
             // save otp
 
+            String otp= otpService.genrateOtp(new EmailInput(user.getEmail()));
+
+
             // call the email service function
-            emailService.sendSimpleMail(EmailDetails.builder().recipient(userReturned.getEmail()).msgBody("").build());
+            emailService.sendSimpleMail(EmailDetails.builder().recipient(userReturned.getEmail()).subject("otp genrated").msgBody(otp).build());
+
+
 
 
             return new UserResponse(userReturned.getId(),"Successfully signed up.","SUCCESS");
@@ -54,6 +62,7 @@ public class UserService {
         }
 
     }
+
 
     public UserFetchResponse findByUserName(String userName) {
 

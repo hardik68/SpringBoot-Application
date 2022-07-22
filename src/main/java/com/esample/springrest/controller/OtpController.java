@@ -1,5 +1,6 @@
 package com.esample.springrest.controller;
 
+import com.esample.springrest.model.EmailInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +18,9 @@ public class OtpController {
 	private OtpService otpService;
 	
 	@PostMapping("/generateotp")
-	public String home(@RequestBody MobileNumberInput mobileNumberInput) {
+	public String home(@RequestBody EmailInput emailInput) {
 		
-		String otp =  otpService.genrateOtp(mobileNumberInput);
+		String otp =  otpService.genrateOtp(emailInput);
         return otp;
 		
 	}

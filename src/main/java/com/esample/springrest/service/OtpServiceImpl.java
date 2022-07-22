@@ -6,12 +6,12 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.esample.springrest.model.EmailInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.esample.springrest.entities.UserOtp;
-import com.esample.springrest.model.MobileNumberInput;
 import com.esample.springrest.model.ValidateOtpRequest;
 import com.esample.springrest.repository.UserOtpRepository;
 @Service
@@ -35,11 +35,11 @@ public class OtpServiceImpl implements OtpService {
 	}
 
 
-	public String genrateOtp(MobileNumberInput mobileNumberInput) {
+	public String genrateOtp(EmailInput emailInput) {
 		String otp = getRandomNumberint();
 		UserOtp userOtp = new UserOtp();
-		if(isValidMobileNo(mobileNumberInput.getMobileNumber())){
-			userOtp.setMobileNumber(mobileNumberInput.getMobileNumber());
+		if(isValidEmail(emailInput.getEmail())){
+			userOtp.setEmail(emailInput.getEmail());
 			java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
 			java.sql.Date expiryDate = new java.sql.Date(System.currentTimeMillis() + expiryTime);
 
@@ -49,11 +49,11 @@ public class OtpServiceImpl implements OtpService {
 
 			otpRepository.save(userOtp);
 			Map<String, String> otpStorageMap = new HashMap<>();
-			otpStorageMap.put(mobileNumberInput.getMobileNumber(), otp);
+			otpStorageMap.put(emailInput.getEmail(), otp);
 			return otp;
 		}
 		else{
-			return "Not a valid Mobile Number";
+			return "Not a valid Email";
 		}
 	}
 
@@ -95,6 +95,20 @@ public class OtpServiceImpl implements OtpService {
 //returns a boolean value
 		return (match.find() && match.group().equals(str));
 	}
+	public static boolean isValidEmail(String email) {
+		//(0/91): number starts with (0/91)
+		//[7-9]: starting of the number may contain a digit between 0 to 9
+		//[0-9]: then contains digits 0 to 9
+		Pattern ptrn = Pattern.compile(
+				"^(.+)@(\\S+)$"
+
+		);
+		//the matcher() method creates a matcher that will match the given input against this pattern
+		Matcher match = ptrn.matcher(email);
+		//returns a boolean value
+		return (match.find() && match.group().equals(email));
+	}
+
 
 
 }

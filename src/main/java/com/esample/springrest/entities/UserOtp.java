@@ -24,6 +24,17 @@ public class UserOtp {
 	private String mobileNumber;
 	@Column(name="genrated_at")
 	private Date genratedAt;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Column(name="email")
+	private String email;
 	@Column(name="expiry_time")
 	private Date expiryTime;
 	public int getId() {
